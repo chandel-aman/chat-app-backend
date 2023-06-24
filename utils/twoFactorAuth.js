@@ -10,11 +10,11 @@ const generateOTP = () => {
 };
 
 const verifyOTP = (sec, otp) => {
-  const validateOTP = speakeasy.totp.verifyDelta({
+  const validateOTP = speakeasy.totp.verify({
     secret: sec,
     encoding: "base32",
     token: otp,
-    window: 2,
+    window: 3,
   });
   return validateOTP;
 };
