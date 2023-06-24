@@ -48,10 +48,6 @@ app.get("/", (req, res) => {
   res.send(`<h3>Hey! Code Backend is up !</h3>`);
 });
 
-const server = app.listen(PORT, () => {
-  logger.info(`Server is running on port: ${PORT}`);
-});
-
 mongoose
   .connect(process.env.ATLAS_URI, { useNewUrlParser: true })
   .then(() => {
@@ -60,3 +56,7 @@ mongoose
   .catch((err) => {
     logger.error("Error connecting to the database:", err.message);
   });
+
+const server = app.listen(PORT, () => {
+  logger.info(`Server is running on port: ${PORT}`);
+});
