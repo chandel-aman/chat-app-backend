@@ -161,8 +161,8 @@ const login = async (req, res, next) => {
         //generate the otp
         const { otp, secret } = generateOTP();
 
-        // const sendOTPResponse = await sendEmail(user.email, otp);
-        const sendOTPResponse = true;
+        const sendOTPResponse = await sendEmail(user.email, otp);
+        // const sendOTPResponse = true;
         if (sendOTPResponse) {
           try {
             //save the otp to the database
