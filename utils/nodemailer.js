@@ -17,7 +17,7 @@ const sendEmail = async (email, OTP) => {
     });
 
     await transporter.sendMail({
-      from: process.env.EMAIL_USER,
+      from: `SendIt <${process.env.EMAIL_USER}>`,
       to: email,
       subject: "Login OTP",
       html: `
